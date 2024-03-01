@@ -1,0 +1,29 @@
+﻿@model List<PoliziaMunicipaleMulte.Models.VerbaleDettaglio>
+
+<h2>Violazioni con Importo Maggiore di 400 Euro</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID Anagrafica</th>
+            <th>Cognome</th>
+            <th>Nome</th>
+            <th>Importo</th>
+            <th>Data Violazione</th>
+            <th>Decurtamento Punti</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var dettaglio in Model)
+        {
+            <tr>
+                <td>@dettaglio.IDAnagrafica</td>
+                <td>@dettaglio.Cognome</td>
+                <td>@dettaglio.Nome</td>
+                <td>@dettaglio.Importo</td>
+                <td>@dettaglio.DataViolazione.ToString("dd/MM/yyyy")</td>
+                <td>@dettaglio.DecurtamentoPunti</td>
+            </tr>
+        }
+    </tbody>
+</table>

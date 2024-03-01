@@ -1,0 +1,29 @@
+﻿@model PoliziaMunicipaleMulte.Models.Anagrafica
+
+<form asp-controller="Anagrafica" asp-action="AddAnagrafica" method="post">
+    <div class="form-group">
+        <label asp-for="@Model.Cognome">Cognome:</label>
+        <input type="text" asp-for="@Model.Cognome" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Nome">Nome:</label>
+        <input type="text" asp-for="@Model.Nome" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Indirizzo">Indirizzo:</label>
+        <input type="text" asp-for="@Model.Indirizzo" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Citta">Città:</label>
+        <input type="text" asp-for="@Model.Citta" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Cap">CAP:</label>
+        <input type="text" asp-for="@Model.Cap" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.CodiceFiscale">Codice Fiscale:</label>
+        <input type="text" asp-for="@Model.CodiceFiscale" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Aggiungi Anagrafica</button>
+</form>

@@ -1,0 +1,10 @@
+﻿@model PoliziaMunicipaleMulte.Models.Violazione
+
+<form asp-controller="Violazione" asp-action="AddViolazione" method="post">
+    <div class="form-group">
+        <label asp-for="@Model.Descrizione">Descrizione:</label>
+        <input type="text" asp-for="@Model.Descrizione" class="form-control" />
+    </div>
+    <!-- Aggiungi altri campi della classe Violazione se necessario -->
+    <button type="submit" class="btn btn-primary">Aggiungi Multa</button>
+</form>

@@ -1,0 +1,37 @@
+﻿@model PoliziaMunicipaleMulte.Models.Verbale
+
+<form asp-controller="Verbali" asp-action="AddMulta" method="post">
+    <div class="form-group">
+        <label asp-for="@Model.DataViolazione">Data Violazione:</label>
+        <input type="date" asp-for="@Model.DataViolazione" class="form-control"  />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.IndirizzoViolazione">Indirizzo Violazione:</label>
+        <input type="text" asp-for="@Model.IndirizzoViolazione" class="form-control"  />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.NominativoAgente">Nominativo Agente:</label>
+        <input type="text" asp-for="@Model.NominativoAgente" class="form-control"  />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.DataTrascrizioneVerbale">Data Trascrizione Verbale:</label>
+        <input type="date" asp-for="@Model.DataTrascrizioneVerbale" class="form-control"  />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Importo">Importo:</label>
+        <input type="number" asp-for="@Model.Importo" class="form-control"  />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.DecurtamentoPunti">Decurtamento Punti:</label>
+        <input type="number" asp-for="@Model.DecurtamentoPunti" class="form-control"  />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.IDAnagrafica">IDAnafrafica:</label>
+        <input type="number" asp-for="@Model.IDAnagrafica" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.IDViolazione">Decurtamento IDViolazione:</label>
+        <input type="number" asp-for="@Model.IDViolazione" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Aggiungi Multa</button>
+</form>

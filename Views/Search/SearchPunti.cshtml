@@ -1,0 +1,26 @@
+﻿@model List<VerbaliTrascritti>
+
+<div class="container">
+    <h2>Elenco Anagrafie con Totale Punti Decurtati</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID Anagrafia</th>
+                <th>Cognome</th>
+                <th>Nome</th>
+                <th>Totale Punti Decurtati</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var anagrafia in Model)
+            {
+                <tr>
+                    <td>@anagrafia.IDAnagrafica</td>
+                    <td>@anagrafia.Cognome</td>
+                    <td>@anagrafia.Nome</td>
+                    <td>@anagrafia.TotaleVerbaliTrascritti</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,30 @@
+﻿@model List<VerbaleDettaglio>
+
+<div class="container">
+    <h2>Elenco Verbali con Decurtamento Punti > 10</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID Anagrafia</th>
+                <th>Cognome</th>
+                <th>Nome</th>
+                <th>Importo</th>
+                <th>Data Violazione</th>
+                <th>Decurtamento Punti</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var verbale in Model)
+            {
+                <tr>
+                    <td>@verbale.IDAnagrafica</td>
+                    <td>@verbale.Cognome</td>
+                    <td>@verbale.Nome</td>
+                    <td>@verbale.Importo</td>
+                    <td>@verbale.DataViolazione.ToShortDateString()</td>
+                    <td>@verbale.DecurtamentoPunti</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,32 @@
+﻿<div class="container mt-4">
+    <h2>Elenco Anagrafiche</h2>
+    <a class="btn btn-primary" asp-area="" asp-controller="Anagrafica" asp-action="AddAnagrafica">Aggiungi Anagrafica</a>
+
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID Anagrafica</th>
+                <th>Cognome</th>
+                <th>Nome</th>
+                <th>Indirizzo</th>
+                <th>Città</th>
+                <th>CAP</th>
+                <th>Codice Fiscale</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var anagraficaList in Model)
+            {
+                <tr>
+                    <td>@anagraficaList.IDAnagrafica</td>
+                    <td>@anagraficaList.Cognome</td>
+                    <td>@anagraficaList.Nome</td>
+                    <td>@anagraficaList.Indirizzo</td>
+                    <td>@anagraficaList.Citta</td>
+                    <td>@anagraficaList.Cap</td>
+                    <td>@anagraficaList.CodiceFiscale</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

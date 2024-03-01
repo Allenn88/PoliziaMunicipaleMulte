@@ -1,0 +1,25 @@
+﻿@model List<PoliziaMunicipaleMulte.Models.VerbaliTrascritti>
+
+<h2>Totale Verbali Trascritti per Trasgressore</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID Anagrafica</th>
+            <th>Cognome</th>
+            <th>Nome</th>
+            <th>Totale Verbali Trascritti</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var trascrizione in Model)
+        {
+            <tr>
+                <td>@trascrizione.IDAnagrafica</td>
+                <td>@trascrizione.Cognome</td>
+                <td>@trascrizione.Nome</td>
+                <td>@trascrizione.TotaleVerbaliTrascritti</td>
+            </tr>
+        }
+    </tbody>
+</table>
