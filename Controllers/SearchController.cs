@@ -237,5 +237,63 @@ public class SearchController : Controller
         }
 
     }
+    public IActionResult SearchContestazione()
+    {
+        // Aprire la connessione
+        using (var conn = new SqlConnection(connString))
+        {
+            List<VerbaleDettaglio> trascrizioni = new List<VerbaleDettaglio>();
+
+            try
+            {
+                conn.Open();
+                // Creare il comando
+                var command = new SqlCommand(@"
+                SELECT
+                    A.[IDAnagrafica],
+                    A.[Cognome],
+                    A.[Nome],
+                    V.[Importo],
+                    V.[DataViolazione],
+                    V.[DecurtamentoPunti]
+                FROM
+                    [PoliziaMunicipale].[dbo].[Anagrafica] A
+                JOIN
+                    [PoliziaMunicipale].[dbo].[Verbale] V ON A.[IDAnagrafica] = V.[IDAnagrafica]
+                WHERE
+                    V.[DataViolazione] > DATEADD(MONTH, -1, GETDATE())
+            ", conn);
+
+                // Eseguire il comando
+                var reader = command.ExecuteReader();
+
+                // Usare i dati
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        var VerbaleDettaglio = new VerbaleDettaglio()
+                        {
+                            IDAnagrafica = (int)reader["IDAnagrafica"],
+                            Cognome = reader["Cognome"].ToString(),
+                            Nome = reader["Nome"].ToString(),
+                            Importo = (decimal)reader["Importo"],
+                            DataViolazione = (DateTime)reader["DataViolazione"],
+                            DecurtamentoPunti = (int)reader["DecurtamentoPunti"]
+                        };
+                        trascrizioni.Add(VerbaleDettaglio);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log dell'errore o gestione dell'errore appropriata
+                return View("Error");
+            }
+
+            return View(trascrizioni);
+        }
+    }
+
 }
 
